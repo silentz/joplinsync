@@ -15,22 +15,32 @@ services:
       - webdav_username
       - webdav_password
     volumes:
-      - ./data:/server/files
+      - ./data/joplin:/server/files
     ports:
       - 8443:443
 
-  # gitsync:
-  #   build: ./build/gitsync/
-  #   command: ./entrypoint.sh
-  #   volumes:
-  #     - ./data:/server/files:ro
+  gitsync:
+    build: ./build/gitsync/
+    command: ./entrypoint.sh
+    environment:
+      GIT_KEY_FILE: /run/secrets/git_key
+      GIT_PUB_FILE: /run/secrets/git_pub
+    secrets:
+      - git_pub
+      - git_key
+    volumes:
+      - ./data:/gitsync/repo:ro
 
 secrets:
   webdav_username:
-    file: secrets/webdav_username.txt
+    file: ./secrets/webdav_username.txt
   webdav_password:
-    file: secrets/webdav_password.txt
+    file: ./secrets/webdav_password.txt
   server_key:
-    file: secrets/server.key
+    file: ./secrets/server.key
   server_crt:
-    file: secrets/server.crt
+    file: ./secrets/server.crt
+  git_key:
+    file: ./secrets/git.key
+  git_pub:
+    file: ./secrets/git.pub
