@@ -9,5 +9,5 @@ htpasswd -bc /etc/nginx/htpasswd $USERNAME $PASSWORD
 echo "Username: $USERNAME"
 echo "Password: $PASSWORD"
 
-chown -R www-data:www-data /bucket/files
+chown -R www-data:www-data /server/files
 nginx -g 'daemon off;'
