@@ -14,7 +14,7 @@ do
 
         # push changes to remote repository
         export GIT_SSH_COMMAND="ssh -i $GIT_KEY_FILE -o StrictHostKeyChecking=no"
-        git remote | xargs git push
+        git remote | xargs git push --set-upstream
     fi
 
     sleep 1
