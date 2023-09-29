@@ -17,5 +17,5 @@ do
         git remote | xargs git push
     fi
 
-    sleep 1
+    sleep 30
 done
