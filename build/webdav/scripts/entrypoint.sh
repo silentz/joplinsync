@@ -1,13 +1,14 @@
 #!/bin/bash
 
-USERNAME=webdav_user
-PASSWORD=$(dd if=/dev/urandom of=/dev/stdout \
-              bs=16 count=1 status=none |  hexdump -ve '1/1 "%.2x"')
-
+# create webdav user
+USERNAME=$(cat $WEBDAV_USERNAME_FILE)
+PASSWORD=$(cat $WEBDAV_PASSWORD_FILE)
 htpasswd -bc /etc/nginx/htpasswd $USERNAME $PASSWORD
 
-echo "Username: $USERNAME"
-echo "Password: $PASSWORD"
+# copy server crt and key
+cp $NGINX_CRT_FILE /server/keys/server.crt
+cp $NGINX_KEY_FILE /server/keys/server.key
 
+# run server
 chown -R www-data:www-data /server/files
 nginx -g 'daemon off;'
