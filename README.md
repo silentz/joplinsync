@@ -4,7 +4,7 @@ A self-hosted Nginx instance with WebDAV module for Joplin notes syncronization.
 Done over TLS with enabled Basic Auth. Also implemented git sync as a backup mechanism.
 
 If use plan to use it, please make sure your notes are encrypted in Joplin with
-password at least and make sure you use this project only for sync.
+password at least.
 
 ## How to use
 
@@ -31,3 +31,6 @@ git remote add upstream_XX git@github.com:silentz/mirror_XX.git
 ```bash
 docker-compose up
 ```
+
+5. Connect your Joplin app via WebDAV protocol using your server URL and
+credentials from `./secrets/webdav_username.txt` amd `./secrets/webdav_password.txt`
