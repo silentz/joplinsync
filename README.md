@@ -10,7 +10,7 @@ password at least and make sure you use this project only for sync.
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/silentz/joplinsync
+git clone https://github.com/silentz/joplinsync.git
 ```
 
 2. Run `make` to init ssh-keys, nginx certificates and webdav credentials:
