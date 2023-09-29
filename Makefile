@@ -18,5 +18,5 @@ nginx:
 
 git:
 	mkdir -p ./secrets
-	openssl genrsa 4096 > ./secrets/git.key
-	openssl rsa -in ./secrets/git.key -outform PEM -pubout -out ./secrets/git.pub
+	ssh-keygen -t rsa -b 4096 -f ./secrets/git -N ""
+	mv ./secrets/git ./secrets/git.key
