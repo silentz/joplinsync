@@ -7,6 +7,9 @@ RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
 RUN apt update -y && \
     apt install -y git
 
+# init git
+RUN git config --global --add safe.directory '*'
+
 # init structure
 WORKDIR /gitsync
 RUN mkdir -p /gitsync/repo

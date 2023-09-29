@@ -29,7 +29,7 @@ services:
       - git_pub
       - git_key
     volumes:
-      - ./data:/gitsync/repo:ro
+      - ./data:/gitsync/repo
 
 secrets:
   webdav_username:
