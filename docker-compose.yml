@@ -5,6 +5,6 @@ services:
     build: ./build/webdav/
     command: ./entrypoint.sh
     volumes:
-      - ./data:/bucket/files
+      - ./data:/server/files
     ports:
       - 8443:443
