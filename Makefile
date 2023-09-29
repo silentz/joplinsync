@@ -22,6 +22,7 @@ git:
 	mv ./secrets/git ./secrets/git.key
 
 git_init:
+	mkdir -p ./data
 	git -C ./data init
 	git -C ./data config user.name  "gitsync"
 	git -C ./data config user.email "gitsync@noreply.test"
