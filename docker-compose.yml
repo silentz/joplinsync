@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  webdav:
+    build: ./build
+    command: ./entrypoint.sh
+    volumes:
+      - ./data:/bucket/files
+    ports:
+      - 8080:80
