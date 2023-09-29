@@ -27,6 +27,11 @@ git remote add upstream_02 git@github.com:silentz/mirror_02.git
 git remote add upstream_XX git@github.com:silentz/mirror_XX.git
 ```
 
+You also need to set upstream for all remotes! Example:
+```bash
+git push --set-upstream origin master
+```
+
 4. Run service:
 ```bash
 docker-compose up
